@@ -127,7 +127,6 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
   display: inline-block;
-  transition: color 250ms var(--timing-function);
 }
 .navigation-link1 {
   font-family: var(--main-font);
@@ -139,6 +138,7 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
   display: inline-block;
+  transition: color 250ms var(--timing-function);
 }
 .navigation-link1:hover,
 .navigation-link1:focus,
@@ -162,7 +162,7 @@ img {
 
 .navigation-icon {
   margin-right: 10px;
-  transition: color 250ms var(--timing-function);
+  transition: fill 250ms var(--timing-function);
 }
 .navigation-link:hover .navigation-icon,
 .navigation-link:focus .navigation-icon
@@ -239,7 +239,7 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   text-decoration: none;
-  transition: color 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .modal-btn:hover,
