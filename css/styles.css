@@ -12,6 +12,7 @@
   --footer-colour: rgba(255, 255, 255, 0.6);
   --our-team-color: #f5f4fa;
   --footer-1: rgba(255, 255, 255, 0.1);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);  
 }
 body {
   background-color: var(--primary-bg-colour);
@@ -126,6 +127,7 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
   display: inline-block;
+  transition: color 250ms var(--timing-function);
 }
 .navigation-link1 {
   font-family: var(--main-font);
@@ -155,15 +157,32 @@ img {
   display: flex;
   align-items: center;
   fill: currentcolor;
+  transition: color 250ms var(--timing-function);
 }
 
 .navigation-icon {
   margin-right: 10px;
+  transition: color 250ms var(--timing-function);
 }
 .navigation-link:hover .navigation-icon,
 .navigation-link:focus .navigation-icon
  {
   fill: var(--accent-colour);
+}
+
+.navigation-item {
+  position: relative;
+}
+
+.current::after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-colour);
 }
 
 
@@ -220,7 +239,9 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   text-decoration: none;
+  transition: color 250ms var(--timing-function);
 }
+
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: var(--third-bg-colour);
@@ -282,6 +303,40 @@ img {
 .item :last-child {
   margin-right: 0;
 }
+.work-thumb {
+  position: relative;
+}
+
+.work-product {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 250ms var(--timing-function);
+}
+
+.product-name {
+  font-weight: 700;
+font-size: 14px;
+line-height: 1.14;
+/* text-align: center; */
+letter-spacing: 0.03em;
+text-transform: uppercase;
+
+color: var(--primary-bg-colour);
+}
+
+
+.item:hover .work-product {
+  opacity: 1;
+}
+
 /*    END What  we are doing  */
 /*  OUR TEAM   */
 .team {
@@ -345,6 +400,7 @@ img {
   justify-content: center;
   border-radius: 50%;
   fill: #afb1b8;
+  transition: fill 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
 .social-link:hover,
 .social-link:focus {
@@ -377,11 +433,12 @@ img {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: #afb1b8;
+  transition: fill 250ms var(--timing-function), border-color 250ms var(--timing-function);
 }
 .clients-link:hover,
 .clients-link:focus {
   fill: var(--accent-colour);
-  border-color: var(--accent-colour);
+  border-color:         var(--accent-colour);
 }
 /*  END Regular customers    */
 /*   FOOTER     */
@@ -446,6 +503,9 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  fill: var(--primary-bg-colour);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .footer-icon-list {
@@ -468,11 +528,7 @@ img {
   fill: var(--primary-bg-colour);
   background-color: var(--footer-1);
 }
-.footer-icon-link:hover,
-.footer-icon-link:focus {
-  background-color: var(--accent-colour);
-  background-color: var(--footer-1s);
-}
+
 .footer-icon-link:hover,
 .footer-icon-link:focus {
   background-color: var(--accent-colour);
@@ -505,6 +561,8 @@ img {
   padding: 6px 22px;
   min-width: 73px;
   border-style: none;
+  transition: box-shadow 250ms var(--timing-function), color 250ms var(--timing-function), background-color 250ms var(--timing-function);
+}
  
 }
 .modal-btn-filter:hover,
@@ -514,20 +572,13 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  border-color: var(--accent-color);
+  border-color: var(--accent-colour);
 }
 .gallery {
   padding-top: 94px;
   padding-bottom: 94px;
 }
-.gallery-list-title {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
-  color: var(--secondary-title-text-colour);
-  margin-bottom: 4px;
-}
+
 .gallery-list {
   display: flex;
   flex-wrap: wrap;
@@ -536,6 +587,7 @@ img {
 .gallery-list-item {
   margin: 15px;
   width: 370px;
+  transition: box-shadow 250ms var(--timing-function);
 }
 .gallery-list-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -556,6 +608,7 @@ img {
   line-height: 2;
   letter-spacing: 0.06em;
   color: var(--secondary-title-text-colour);
+  margin-bottom: 4px;
 }
 .gallery-list-position {
   font-weight: 400;
@@ -564,4 +617,95 @@ img {
   letter-spacing: 0.03em;
   color: var(--primary-text-colour);
 }
+
+.gallery-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--primary-background-color); 
+}
+.gallery-image {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+}
+.gallery-list-link:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+
 /*  END GALLERY    */
+
+/*   BACKDROP    */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  
+  opacity: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 250ms var(--timing-function), pointer-events 250ms var(--timing-function), visibility 250ms var(--timing-function);
+  
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.6);
+    
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  min-width: 528px;
+  min-height: 581px;  
+  
+  background-color: var(--primary-bg-colour);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+  0px 1px 1px rgba(0, 0, 0, 0.14), 
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 2;
+  transition: transform 250ms var(--timing-function);
+}
+
+.modal-button {  
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 8px;
+  right: 8px;  
+  
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;  
+  background: var(--primary-bg-colour);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  
+}
+
+
+/*   END BACKDROP   */
