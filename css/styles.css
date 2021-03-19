@@ -564,7 +564,7 @@ color: var(--primary-bg-colour);
   transition: box-shadow 250ms var(--timing-function), color 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
  
-}
+
 .modal-btn-filter:hover,
 .modal-btn-filter:focus {
   background-color: var(--accent-colour);
@@ -623,7 +623,7 @@ color: var(--primary-bg-colour);
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.03em;
-  color: var(--primary-background-color); 
+  color: var(--primary-bg-colour); 
 }
 .gallery-image {
   position: relative;
